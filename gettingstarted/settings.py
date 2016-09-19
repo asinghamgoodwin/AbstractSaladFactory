@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'salads',
+        'NAME': 'asf_database',
       #  'USER':
       #  'PASSWORD':
       #  'HOST':
