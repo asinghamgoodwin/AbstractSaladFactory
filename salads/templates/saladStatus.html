@@ -1,0 +1,54 @@
+<body> <!-- style="background-color:lightgreen;"-->
+<div align="center">
+    <h1>Get excited for the Abstract Salad Factory
+        taking place on {{ salad_date }} at {{salad_time}} in {{ salad_location }}!!
+    </h1>
+<br>
+<br>
+<form action="{% url 'salads:commitment' salad_id %}" method="post">
+{% csrf_token %}
+    {{ form }}
+    <input type="submit" name="Submit"> I'm bringing it!
+</form>
+<p style="color:red;"> {{ warnings_beautified }} </p>
+So far in this salad:<br>
+<br>
+</body>
+<table style="width:100%">
+    <tr>
+        <th> <strong>Greens</strong></th>
+        <th> <strong>Veggies</strong></th>
+        <th> <strong>Protein</strong></th>
+        <th> <strong>Dressing</strong></th>
+        <th> <strong>Other</strong></th>
+    </tr>
+    <tr>
+        <td>
+            {% for ingredient_owner_pair in greens_list %}
+                <center>{{ ingredient_owner_pair }}</center>
+            {% endfor %}
+        </td>
+        <td>
+            {% for ingredient_owner_pair in veggie_list %}
+                <center>{{ ingredient_owner_pair }}</center>
+            {% endfor %}
+        </td>
+        <td>
+            {% for ingredient_owner_pair in protein_list %}
+                <center>{{ ingredient_owner_pair }}</center>
+            {% endfor %}
+        </td>
+        <td>
+            {% for ingredient_owner_pair in dressing_list %}
+                <center>{{ ingredient_owner_pair }}</center>
+            {% endfor %}
+        </td>
+        <td>
+            {% for ingredient_owner_pair in other_list %}
+                <center>{{ ingredient_owner_pair }}</center>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+</div>
+</body>
