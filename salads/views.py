@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-#from django.urls import reverse
+from django.urls import reverse
 import datetime
 
 from .models import Salad, Ingredient
@@ -87,8 +87,8 @@ def commitment(request, salad_id):
                 ingredient_type=ingredient_type, ingredient_owner=ingredient_owner)
         newIngredient.save()
     else: print "no ingredient brought"
-    return HttpResponse("i'd love to reverse, but don't worry you made a commitment")
-    #return HttpResponseRedirect(reverse('salads:saladStatus', args=(salad_id,)))
+#    return HttpResponse("i'd love to reverse, but don't worry you made a commitment")
+    return HttpResponseRedirect(reverse('salads:saladStatus', args=(salad_id,)))
 
 def createSalad(request):
     form = SaladForm()
@@ -107,8 +107,8 @@ def saladCreated(request):
         newSalad = Salad(salad_date=date, salad_time=time, salad_location=location)
         newSalad.save()
         salad_id = newSalad.id
-      #  return HttpResponseRedirect(reverse('salads:saladStatus', args=(salad_id,)))
-        return HttpResponse("yay! you created a new salad (and i'd love to reverse but i can't")
+        return HttpResponseRedirect(reverse('salads:saladStatus', args=(salad_id,)))
+      #  return HttpResponse("yay! you created a new salad (and i'd love to reverse but i can't")
     else:
         return HttpResponse("your attempt to create a new salad didn't work :(")
 
