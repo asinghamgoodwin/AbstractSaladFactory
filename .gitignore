@@ -1,5 +1,6 @@
 abstractSaladDjango
 *.pyc
+*.py.swp
 staticfiles
 .env
 db.sqlite3
